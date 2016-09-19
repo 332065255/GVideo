@@ -1,0 +1,11 @@
+.ass{
+	background: url(../img/assets.png) no-repeat 16px 0px;
+	width: 16px;
+	height: 25.8px;
+	position: absolute;
+}
+.pauseBtn{
+	background: url(../img/assets.png);
+	background-position-x: 16px;
+	background-position-y: 0px;
+}
