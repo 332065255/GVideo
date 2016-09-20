@@ -238,6 +238,7 @@
 		    this.video.addEventListener('ended',this.endFun,false)
 		    this.video.addEventListener('progress',this.progress,false)
 		    this.progressBarBg.addEventListener("click",this.seek);
+		    this.progressBar.addEventListener("click",this.seek);
 		},
 		seek:function(e){
 			var time="";
