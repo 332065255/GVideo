@@ -97,8 +97,10 @@
 			return "<div class='videoDiv' id='videoDiv'>"
 					+" <video class='gvideo'></video>"
 					+" <div class='videoControl'>"
-					+"    <div class='playBtn'></div>"
-					+"    <div class='pauseBtn'></div>"
+					+"    <div class='btnDiv'>"
+					+"    	<div class='playBtn'></div>"
+					+"    	<div class='pauseBtn'></div>"
+					+"    </div>"
 					+"    <div class='progressDiv'>"
 					+"       <div class='progressBg'></div>"
 					+"       <div class='progressLoad'></div>"
@@ -142,6 +144,7 @@
 		addEvent:function(){
 			this.playBtn.addEventListener("click",this.play);
 			this.video.addEventListener("timeupdate",this.timeupdate)
+			this.video.addEventListener('click',this.pause)
 			this.pauseBtn.addEventListener("click",this.pause)
 			this.video.addEventListener('error',this.errorFun,false);
 		    this.video.addEventListener('play',this.playFun,false);

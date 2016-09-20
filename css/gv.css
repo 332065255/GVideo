@@ -16,6 +16,13 @@
 	width: 100%;
 	bottom: 0px;
 }
+.btnDiv{
+	width: 30px;
+	height: 100%;
+	position: relative;
+	float: left;
+	
+}
 .playBtn{
 	background: url(../img/play.png) no-repeat;
 	position: absolute;
@@ -35,8 +42,9 @@
 }
 .progressDiv{
 	width: 80%;
-	position: absolute;
-	left: 32px;
+	position: relative;
+	float: left;
+	/*left: 32px;*/
 	height: 100%;
 }
 .progressBg{
@@ -85,10 +93,11 @@
 	text-align: center;
 }
 .settingDiv{
-	left: 85%;
+	/*left: 85%;*/
+	float: right;
 	height: 100%;
 	width: 15%;
-	position: absolute;
+	position: relative;
 }
 .sound{
 	background: url(../img/sound.png) no-repeat;
