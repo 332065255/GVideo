@@ -116,6 +116,7 @@
 	width: 20px;
 	height: 70px;
 	display: none;
+	z-index: 999;
 }
 .soundBg{
 	background-color: #CCCCCC;
@@ -167,6 +168,7 @@
 	bottom: 30px;
 	right: 10px;
 	position: absolute;
+	z-index: 0;
 }
 .fullScreen{
 	border: 1px solid #000000;
