@@ -5,7 +5,7 @@
 		init:function(elementId){
 			this._elementId=elementId;
 			_this=this;
-			this.loadScripts(["js/jquery-1.11.3.min.js"],function(){
+			this.loadScripts(["js/jquery-3.1.0.min.js"],function(){
 				_this.loadSucc();
 			});
 		},
@@ -58,126 +58,164 @@
 		_this:"",
 		timeTxt:"",
 		totalTime:"",
-		
+		timeOut:-1,
 		init:function(){
+//			this.mainDiv=document.getElementById(GV._elementId);
+//			this.mainDiv.style.backgroundColor="black";
+//			this.video=document.createElement("video");
+//			this.video.style.height="100%";
+//			this.video.style.width="100%";
+//			
+//			this.bgControl=document.createElement("div");
+//			this.bgControl.style.height="25px";
+//			this.bgControl.style.width="100%";
+////			this.bgControl.style.margin="0px 0px";
+////			this.bgControl.style.left="2.5%"
+////			this.bgControl.borderColor="#000000";
+////			this.bgControl.style.border="0.1px solid #000000";
+////			this.bgControl.style.borderColor="";
+//			
+//			this.bgControl.style.backgroundColor="#ffffff";
+////			this.bgControl.style.borderRadius="5px"
+//			this.bgControl.style.position="relative";
+//			this.bgControl.style.bottom="25px";
+////			this.bgControl.cssText=".bg{height:60px,width:90%,margin:0px}"
+//			this.pauseBtn=document.createElement("div");
+//			this.pauseBtn.style.backgroundImage="url(img/pause.png)";
+//			this.pauseBtn.style.backgroundRepeat="no-repeat";
+//			this.pauseBtn.style.backgroundPositionX="0px";
+//			this.pauseBtn.style.backgroundPositionY="0px";
+//			this.pauseBtn.style.width="26px";
+//			this.pauseBtn.style.height="35px";
+//			this.pauseBtn.style.position="relative";
+//			this.pauseBtn.style.top="-3px";
+//			this.pauseBtn.style.left="5px";
+//			this.pauseBtn.style.display="none";
+//			this.playBtn=document.createElement("div");
+//			this.playBtn.style.backgroundImage="url(img/play.png)";
+//			this.playBtn.style.backgroundRepeat="no-repeat";
+//			this.playBtn.style.backgroundPositionX="0px";
+//			this.playBtn.style.backgroundPositionY="0px";
+//			this.playBtn.style.width="26px";
+//			this.playBtn.style.height="35px";
+//			this.playBtn.style.position="relative";
+//			this.playBtn.style.top="-3px";
+//			this.playBtn.style.left="5px";
+//			
+//			this.progressBarDIV=document.createElement("div");
+//			this.progressBarDIV.style.width="80%";
+//			this.progressBarDIV.style.height="100%";
+//			this.progressBarDIV.style.position="absolute";
+//			this.progressBarDIV.style.left="31px";
+//			this.progressBarDIV.style.top="0px";
+//			
+//			this.progressBar=document.createElement("div");
+//			this.progressBarBg=document.createElement("div");
+//			this.progressBarLoad=document.createElement("div");
+//			this.progressBarBg.style.width="100%";
+//			this.progressBarBg.style.height="50%";
+//			this.progressBarBg.style.position="absolute";
+//			this.progressBarBg.style.left="0px";
+//			this.progressBarBg.style.top="25%";
+//			this.progressBarBg.style.borderRadius="4px";
+//			this.progressBarBg.style.backgroundColor="#cccccc";
+//			
+//			this.progressBarLoad.style.width="0%";
+//			this.progressBarLoad.style.height="50%";
+//			this.progressBarLoad.style.position="absolute";
+//			this.progressBarLoad.style.left="0px";
+//			this.progressBarLoad.style.top="25%";
+//			this.progressBarLoad.style.borderRadius="4px";
+//			this.progressBarLoad.style.backgroundColor="#33ccff";
+//			
+//			this.progressBar.style.width="0%";
+//			this.progressBar.style.height="50%";
+//			this.progressBar.style.position="absolute";
+//			this.progressBar.style.left="0px";
+//			this.progressBar.style.top="25%";
+//			this.progressBar.style.borderRadius="4px";
+//			this.progressBar.style.backgroundColor="#FFcc33";
+//			
+//			this.message=document.createElement("div");
+//			this.message.style.width="100%";
+//			this.message.style.height="20px";
+//			this.message.style.position="absolute";
+//			this.message.style.left="0px";
+//			this.message.style.top="0px";
+////			this.message.style.backgroundColor="#FFcc33";
+//			this.message.style.color=("#ffffff");
+//			this.message.style.size="12px";
+//			
+//			
+//			this.timeTxt=document.createElement("div");
+//			this.timeTxt.style.width="10%";
+//			this.timeTxt.style.height="25px";
+//			this.timeTxt.style.position="absolute";
+////			this.timeTxt.style.float="left";
+//			this.timeTxt.style.left="85%";
+//			this.timeTxt.style.lineHeight="25px";
+//			this.timeTxt.style.center="true";
+//			this.timeTxt.style.top="0px";
+////			this.message.style.backgroundColor="#FFcc33";
+//			this.timeTxt.style.color=("#000000");
+//			this.timeTxt.style.size="10ft";
+//			this.timeTxt.innerHTML="00:00/00:00";
+////			this.pauseBtn.cssText=".pauseBtn{"
+////								+"background: url(../img/assets.png);"
+////								+"background-position-x: 16px;"
+////								+"background-position-y: 0px;"
+////								+"}"
+//			this.mainDiv.appendChild(this.video);
+//			this.mainDiv.appendChild(this.message);
+//			this.mainDiv.appendChild(this.bgControl);
+//			this.bgControl.appendChild(this.pauseBtn)
+//			this.bgControl.appendChild(this.playBtn)
+//			this.bgControl.appendChild(this.progressBarDIV)
+//			this.bgControl.appendChild(this.timeTxt)
+//			this.progressBarDIV.appendChild(this.progressBarBg)
+//			this.progressBarDIV.appendChild(this.progressBarLoad)
+//			this.progressBarDIV.appendChild(this.progressBar)
+//			this.video.addEventListener('loadedmetadata',this.metadataFun,false);
+//			stream.init();
+			_this=this;
+			
+			this.importCss();
 			this.mainDiv=document.getElementById(GV._elementId);
-			this.mainDiv.style.backgroundColor="black";
-			this.video=document.createElement("video");
-			this.video.style.height="100%";
-			this.video.style.width="100%";
-			
-			this.bgControl=document.createElement("div");
-			this.bgControl.style.height="25px";
-			this.bgControl.style.width="100%";
-//			this.bgControl.style.margin="0px 0px";
-//			this.bgControl.style.left="2.5%"
-//			this.bgControl.borderColor="#000000";
-//			this.bgControl.style.border="0.1px solid #000000";
-//			this.bgControl.style.borderColor="";
-			
-			this.bgControl.style.backgroundColor="#ffffff";
-//			this.bgControl.style.borderRadius="5px"
-			this.bgControl.style.position="relative";
-			this.bgControl.style.bottom="25px";
-//			this.bgControl.cssText=".bg{height:60px,width:90%,margin:0px}"
-			this.pauseBtn=document.createElement("div");
-			this.pauseBtn.style.backgroundImage="url(img/pause.png)";
-			this.pauseBtn.style.backgroundRepeat="no-repeat";
-			this.pauseBtn.style.backgroundPositionX="0px";
-			this.pauseBtn.style.backgroundPositionY="0px";
-			this.pauseBtn.style.width="26px";
-			this.pauseBtn.style.height="35px";
-			this.pauseBtn.style.position="relative";
-			this.pauseBtn.style.top="-3px";
-			this.pauseBtn.style.left="5px";
-			this.pauseBtn.style.display="none";
-			this.playBtn=document.createElement("div");
-			this.playBtn.style.backgroundImage="url(img/play.png)";
-			this.playBtn.style.backgroundRepeat="no-repeat";
-			this.playBtn.style.backgroundPositionX="0px";
-			this.playBtn.style.backgroundPositionY="0px";
-			this.playBtn.style.width="26px";
-			this.playBtn.style.height="35px";
-			this.playBtn.style.position="relative";
-			this.playBtn.style.top="-3px";
-			this.playBtn.style.left="5px";
-			
-			this.progressBarDIV=document.createElement("div");
-			this.progressBarDIV.style.width="80%";
-			this.progressBarDIV.style.height="100%";
-			this.progressBarDIV.style.position="absolute";
-			this.progressBarDIV.style.left="31px";
-			this.progressBarDIV.style.top="0px";
-			
-			this.progressBar=document.createElement("div");
-			this.progressBarBg=document.createElement("div");
-			this.progressBarLoad=document.createElement("div");
-			this.progressBarBg.style.width="100%";
-			this.progressBarBg.style.height="50%";
-			this.progressBarBg.style.position="absolute";
-			this.progressBarBg.style.left="0px";
-			this.progressBarBg.style.top="25%";
-			this.progressBarBg.style.borderRadius="4px";
-			this.progressBarBg.style.backgroundColor="#cccccc";
-			
-			this.progressBarLoad.style.width="0%";
-			this.progressBarLoad.style.height="50%";
-			this.progressBarLoad.style.position="absolute";
-			this.progressBarLoad.style.left="0px";
-			this.progressBarLoad.style.top="25%";
-			this.progressBarLoad.style.borderRadius="4px";
-			this.progressBarLoad.style.backgroundColor="#33ccff";
-			
-			this.progressBar.style.width="0%";
-			this.progressBar.style.height="50%";
-			this.progressBar.style.position="absolute";
-			this.progressBar.style.left="0px";
-			this.progressBar.style.top="25%";
-			this.progressBar.style.borderRadius="4px";
-			this.progressBar.style.backgroundColor="#FFcc33";
-			
-			this.message=document.createElement("div");
-			this.message.style.width="100%";
-			this.message.style.height="20px";
-			this.message.style.position="absolute";
-			this.message.style.left="0px";
-			this.message.style.top="0px";
-//			this.message.style.backgroundColor="#FFcc33";
-			this.message.style.color=("#ffffff");
-			this.message.style.size="12px";
-			
-			
-			this.timeTxt=document.createElement("div");
-			this.timeTxt.style.width="10%";
-			this.timeTxt.style.height="25px";
-			this.timeTxt.style.position="absolute";
-//			this.timeTxt.style.float="left";
-			this.timeTxt.style.left="85%";
-			this.timeTxt.style.lineHeight="25px";
-			this.timeTxt.style.center="true";
-			this.timeTxt.style.top="0px";
-//			this.message.style.backgroundColor="#FFcc33";
-			this.timeTxt.style.color=("#000000");
-			this.timeTxt.style.size="10ft";
-			this.timeTxt.innerHTML="00:00/00:00";
-//			this.pauseBtn.cssText=".pauseBtn{"
-//								+"background: url(../img/assets.png);"
-//								+"background-position-x: 16px;"
-//								+"background-position-y: 0px;"
-//								+"}"
-			this.mainDiv.appendChild(this.video);
-			this.mainDiv.appendChild(this.message);
-			this.mainDiv.appendChild(this.bgControl);
-			this.bgControl.appendChild(this.pauseBtn)
-			this.bgControl.appendChild(this.playBtn)
-			this.bgControl.appendChild(this.progressBarDIV)
-			this.bgControl.appendChild(this.timeTxt)
-			this.progressBarDIV.appendChild(this.progressBarBg)
-			this.progressBarDIV.appendChild(this.progressBarLoad)
-			this.progressBarDIV.appendChild(this.progressBar)
+			this.mainDiv.innerHTML=this.getDivHtml();
+			this.playBtn=$(".playBtn")[0];
+			this.pauseBtn=$(".pauseBtn")[0];
+			this.video=$(".gvideo")[0];
+			this.progressBarBg=$(".progressBg")[0];
+			this.timeTxt=$(".timeTxt")[0];
+			this.message=$(".messageTxt")[0];
+			this.progressBar=$(".progressPlay")[0];
 			this.video.addEventListener('loadedmetadata',this.metadataFun,false);
 			stream.init();
-			_this=this;
+		},
+		getDivHtml:function(){
+			return "<div class='videoDiv'>"
+					+" <video class='gvideo'></video>"
+					+" <div class='videoControl'>"
+					+"    <div class='playBtn'></div>"
+					+"    <div class='pauseBtn'></div>"
+					+"    <div class='progressDiv'>"
+					+"       <div class='progressBg'></div>"
+					+"       <div class='progressLoad'></div>"
+					+"       <div class='progressPlay'></div>"
+					+"    </div>"
+					+"    <div class='settingDiv'>"
+					+"    		<div class='timeTxt'>00:00/00:00</div>"
+					+"    </div>"
+					+" </div>"
+					+"<div class='messageTxt'>加载中...</div>"
+					+"</div>"
+					
+		},
+		importCss:function(){
+			var links=document.createElement("link");
+			links.href="css/gv.css";
+			links.rel="stylesheet";
+			document.head.appendChild(links);
 		},
 		play:function(){
 			stream.play();
@@ -211,7 +249,7 @@
 			console.log(UI.video.buffered.end(0),UI.video.buffered.start(0))
 //			UI.progressBarLoad.style.width=((UI.video.buffered.start(0)+UI.video.buffered.end(0))/UI.video.duration)*100+"%";
 			UI.progressBar.style.width=(UI.video.currentTime/UI.video.duration)*100+"%";
-			
+//			_this.progressBar.width((UI.video.currentTime/UI.video.duration)*100+"%")
 			var time="";
 			if(_this.video.currentTime/60>=10)
 			{
@@ -241,6 +279,7 @@
 			UI.pauseBtn.style.display="none";
 		},
 		metadataFun:function(){
+			_this.showTip(true,"读取数据成功,进入对接通道");
 			_this.addEvent();
 			if(_this.video.duration/60>=10)
 			{
@@ -269,12 +308,14 @@
 			UI.showTip(true,'出错');
 		},
 		showTip:function(b,m){
+			clearTimeout(_this.timeOut);
 			if(b)
 			{
-				this.message.innerHTML=m;
+				_this.message.innerHTML=m;
+				_this.timeOut=setTimeout(_this.showTip,3000,false);
 			}
 			else{
-				this.message.innerHTML="";
+				_this.message.innerHTML="";
 			}
 		}
 	}

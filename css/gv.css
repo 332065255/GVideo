@@ -1,11 +1,90 @@
-.ass{
-	background: url(../img/assets.png) no-repeat 16px 0px;
-	width: 16px;
-	height: 25.8px;
+.videoDiv{
+	height: 100%;
+	width: 100%;
+	background-color: black;
+	position: relative;
+}
+.gvideo{
+	height: 100%;
+	width: 100%;
+}
+.videoControl{
+	background-color: #ffffff;
+	height: 25px;
 	position: absolute;
+	width: 100%;
+	bottom: 0px;
+}
+.playBtn{
+	background: url(../img/play.png) no-repeat;
+	position: absolute;
+	left: 5px;
+	top: -3px;
+	height: 25.8px;
+	width: 16px;
 }
 .pauseBtn{
-	background: url(../img/assets.png);
-	background-position-x: 16px;
-	background-position-y: 0px;
+	background: url(../img/pause.png) no-repeat;
+	position: absolute;
+	left: 5px;
+	top: -3px;
+	display: none;
+	height: 25.8px;
+	width: 16px;
+}
+.progressDiv{
+	width: 80%;
+	position: absolute;
+	left: 32px;
+	height: 100%;
+}
+.progressBg{
+	border-radius: 4px;
+	width: 100%;
+	position: absolute;
+	left: 0px;
+	height: 15px;
+	top: 5px;
+	background-color: #cccccc;
+}
+.progressLoad{
+	border-radius: 4px;
+	width: 0%;
+	position: absolute;
+	left: 0px;
+	height: 15px;
+	top: 5px;
+	background-color: #33ccff;
+}
+.progressPlay{
+	border-radius: 4px;
+	width: 0%;
+	position: absolute;
+	left: 0px;
+	height: 15px;
+	top: 5px;
+	background-color: #FFcc33;
+}
+.timeTxt{
+	padding-top: 2px;
+	position: absolute;
+	left: 0%;
+	font-size: 12px;
+	color: #000000;
+	line-height: 25px;
+	text-align: center;
+}
+.messageTxt{
+	position: absolute;
+	bottom: 25px;
+	left: 4px;
+	font-size: 14px;
+	color: #ffffff;
+	line-height: 25px;
+	text-align: center;
+}
+.settingDiv{
+	left: 85%;
+	height: 100%;
+	position: absolute;
 }
