@@ -3,6 +3,7 @@
 	width: 100%;
 	background-color: black;
 	position: relative;
+	border: 1px solid #000000;
 }
 .gvideo{
 	height: 100%;
@@ -26,11 +27,11 @@
 .pauseBtn{
 	background: url(../img/pause.png) no-repeat;
 	position: absolute;
-	left: 5px;
+	left: 3px;
 	top: -3px;
 	display: none;
 	height: 25.8px;
-	width: 16px;
+	width: 19px;
 }
 .progressDiv{
 	width: 80%;
@@ -68,7 +69,7 @@
 .timeTxt{
 	padding-top: 2px;
 	position: absolute;
-	left: 0%;
+	right: 65px;
 	font-size: 12px;
 	color: #000000;
 	line-height: 25px;
@@ -86,5 +87,93 @@
 .settingDiv{
 	left: 85%;
 	height: 100%;
+	width: 15%;
 	position: absolute;
+}
+.sound{
+	background: url(../img/sound.png) no-repeat;
+	width: 15px;
+	height: 19px;
+	top: 5px;
+	position: absolute;
+	right: 40px;
+}
+.unsound{
+	background: url(../img/unsound.png) no-repeat;
+	width: 23px;
+	height: 21px;
+	top: 5px;
+	position: absolute;
+	right: 40px;
+	display: none;
+}
+.soundPanel{
+	background-color: white;
+	border-radius: 4px;
+	position: absolute;
+	bottom: 25px;
+	right: 40px;
+	width: 20px;
+	height: 70px;
+	display: none;
+}
+.soundBg{
+	background-color: #CCCCCC;
+	border-radius: 2px;
+	position: relative;
+	bottom: 0px;
+	top: 15px;
+	margin: auto;
+	width: 6px;
+	height: 50px;
+}
+.soundBar{
+	background-color: #FFcc33;
+	border-radius: 2px;
+	position: absolute;
+	/*bottom: 0px;*/
+	top: 65px;
+	left: 7px;
+	margin: auto;
+	width: 6px;
+	height: 50px;
+	transform-origin: top center;
+	transform: rotate(180deg);
+}
+.soundNum{
+	padding-top: 2px;
+	position: absolute;
+	left: 0%;
+	top: 2px;
+	font-size: 10px;
+	color: #000000;
+	line-height: 10px;
+	width: 100%;
+	text-align: center;
+}
+.fullBtn{
+	background: url(../img/fullscreen.png) no-repeat;
+	width: 24px;
+	height: 23px;
+	top: 3px;
+	position: absolute;
+	/*left: 110px;*/
+	right: 5px;
+}
+.playBigBtn{
+	background: url(../img/playBig.png) no-repeat;
+	width: 88px;
+	height: 53px;
+	bottom: 30px;
+	right: 10px;
+	position: absolute;
+}
+.fullScreen{
+	border: 1px solid #000000;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	left: 0px;
+	top: 0px;
+	background-color: black;
 }
