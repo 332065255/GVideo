@@ -56,7 +56,7 @@
 
 					if (result.done) {
 		                console.log("this's over");
-//		                _this.mediaSource.endOfStream();
+		                _this.mediaSource.endOfStream();
 		                return reader.cancel();
 		            }
             			soFar += chunk.byteLength;
@@ -91,7 +91,6 @@
 					
 					sourceBuffer = mediaSource.addSourceBuffer(mimeCodec);
 					//http://nickdesaulniers.github.io/netfix/demo/frag_bunny.mp4
-					//http://gao11.cn/1.mp4
 					var req = new Request("http://nickdesaulniers.github.io/netfix/demo/frag_bunny.mp4", {method: 'GET', cache: 'default',mode:"cors"});  
 				    fetch(req).then(function(response) {  
 				    		//  typeof(response.body)==ReadableStream
