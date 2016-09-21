@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!--
+	作者：332065255@qq.com
+	时间：2016-06-22
+	描述：   h5 加密视频播放测试
+-->
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			*{
+				padding: 0px;
+				margin: 0px;
+			}
+			html,body{
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+		<script>
+			var elem;
+			window.onload = function() {
+			    elem = document.getElementById("pchVideo");
+				streamingDemo();
+				elem.addEventListener("loadedmetadata",loadedmetadata)
+				elem.addEventListener("timeupdate",timeupdate)
+			};
+			function timeupdate(){
+				var div=document.getElementById("timeCurren");
+				div.innerHTML=parseInt(elem.currentTime);
+			}
+			function loadedmetadata(){
+				var div=document.getElementById("time");
+				div.innerHTML="/"+parseInt(elem.duration);
+			}
+			var mediaSource;
+			function streamingDemo() {  
+				mediaSource= new MediaSource;
+
+				  blobs=new Blob([]);
+				  elem.src = URL.createObjectURL(mediaSource);
+				  elem.play();
+				  mediaSource.addEventListener('sourceopen', sourceOpen);
+//					sourceOpen();
+				
+			}
+			var soFar=0;
+			var _this=this;
+			var blobs;
+			var arr=[];
+			function readr(reader){
+				return reader.read().then(function (result) {
+		            
+            			const chunk = result.value;///Uint8Array
+
+					if (result.done) {
+		                console.log("this's over");
+		                _this.mediaSource.endOfStream();
+		                return reader.cancel();
+		            }
+            			soFar += chunk.byteLength;
+//          			console.log(_this.sourceBuffer.appendBuffer)
+					if(!_this.sourceBuffer.updating)
+					{
+						_this.arr=_this.arr.concat(_this.Uint8Array2Array(chunk))
+						var u8a=new Uint8Array(_this.arr);
+						_this.sourceBuffer.appendBuffer(u8a.buffer);
+						_this.arr=[];
+						console.log("执行成功一次");
+					}
+					else
+					{
+						_this.arr=_this.arr.concat(_this.Uint8Array2Array(chunk))
+						console.log("还在更新呢",_this.arr.length);
+					}
+            			
+            			
+            			console.log(soFar);
+            			return _this.readr(reader);
+            	})
+			}
+			
+			var sourceBuffer;
+			var firstRun=false;
+			var mimeCodec = 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"';
+			function sourceOpen(){
+				console.log("this's open",mediaSource.readyState);
+				if(!firstRun)
+				{
+					
+					sourceBuffer = mediaSource.addSourceBuffer(mimeCodec);
+//					var r=new headers()
+					//https://cors-anywhere.herokuapp.com/http://nickdesaulniers.github.io/netfix/demo/frag_bunny.mp4
+					//https://cors-anywhere.herokuapp.com/http://dvr-ws.csslcloud.net/src/AE3C4B5BCABAA3AE9C33DC5901307461.flv
+					var req = new Request("https://cors-anywhere.herokuapp.com/http://gao11.cn/2.pch", {method: 'GET', cache: 'default',mode:"cors",headers:{'Access-Control-Allow-Headers':'X-Requested-With'}});  
+				    fetch(req).then(function(response) {  
+				    		//  typeof(response.body)==ReadableStream
+				        var reader = response.body.getReader();  
+				        return readr(reader);
+				    })
+				    firstRun=true;
+			   	}
+			}
+			
+			function Uint8Array2Array(u8a) {
+				var arr = [];
+				for (var i = 0; i < u8a.length; i++) {
+					arr.push(u8a[i]^5);
+				}
+				return arr;
+			}
+		</script>
+	</head>
+	<body>
+		<div style="width: 50%;height: 400px;margin: auto;background-color: black;">
+			<video id="pchVideo" style="width: 100%;height: 100%;" >
+				buzhichi 
+			</video>
+		</div>
+		<div id="timeCurren" style="float: left;"></div>
+		<div id="time" style="float: left;"></div>
+	</body>
+</html>
