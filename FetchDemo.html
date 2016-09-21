@@ -90,8 +90,10 @@
 				{
 					
 					sourceBuffer = mediaSource.addSourceBuffer(mimeCodec);
-					//http://nickdesaulniers.github.io/netfix/demo/frag_bunny.mp4
-					var req = new Request("http://nickdesaulniers.github.io/netfix/demo/frag_bunny.mp4", {method: 'GET', cache: 'default',mode:"cors"});  
+//					var r=new headers()
+					//https://cors-anywhere.herokuapp.com/http://nickdesaulniers.github.io/netfix/demo/frag_bunny.mp4
+					//https://cors-anywhere.herokuapp.com/http://dvr-ws.csslcloud.net/src/AE3C4B5BCABAA3AE9C33DC5901307461.flv
+					var req = new Request("https://cors-anywhere.herokuapp.com/http://nickdesaulniers.github.io/netfix/demo/frag_bunny.mp4", {method: 'GET', cache: 'default',mode:"cors",headers:{'Access-Control-Allow-Headers':'X-Requested-With'}});  
 				    fetch(req).then(function(response) {  
 				    		//  typeof(response.body)==ReadableStream
 				        var reader = response.body.getReader();  
